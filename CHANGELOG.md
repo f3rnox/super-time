@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.49.0](https://github.com/f3rnox/super-time/compare/v1.48.0...v1.49.0) (2026-04-23)
+
+
+### Features
+
+* update deps, refactor handlers, rm web service, migrate to vitest ([6fc09a7](https://github.com/f3rnox/super-time/commit/6fc09a7bf43222c5a946b30d807ddf086ff57f33))
+
 ## 1.48.0 (2026-04-23)
 
 
