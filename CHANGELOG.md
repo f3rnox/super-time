@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.49.1](https://github.com/f3rnox/super-time/compare/v1.49.0...v1.49.1) (2026-04-23)
+
+
+### Bug Fixes
+
+* rename package to s-time and bin to st ([add7888](https://github.com/f3rnox/super-time/commit/add78888eb376fc96c5d2df57bf72bd12442901d))
+
 ## [1.49.0](https://github.com/f3rnox/super-time/compare/v1.48.0...v1.49.0) (2026-04-23)
 
 
