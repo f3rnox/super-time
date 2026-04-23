@@ -3,7 +3,7 @@ import _map from 'lodash/map'
 import weekday from 'weekday'
 import parseDate from 'time-speak'
 import _isUndefined from 'lodash/isUndefined'
-import { eachDayOfInterval, eachHourOfInterval } from 'date-fns'
+import { eachDayOfInterval } from 'date-fns'
 
 import log from '../../log'
 import { populateResults } from './utils'
@@ -39,25 +39,33 @@ const accumulateEntryResults = (
   resultsPerWeekday: BreakdownResults
 ): void => {
   const { end, start } = entry
+  const hasOpenEnd = _isUndefined(end) || end === null
   const interval = {
-    end: _isUndefined(end) ? new Date() : (end as Date),
+    end: hasOpenEnd ? new Date() : end,
     start
   }
+  const normalizedEntry: TimeSheetEntry = hasOpenEnd
+    ? { ...entry, end: null }
+    : entry
 
   const days = eachDayOfInterval(interval)
-  const hours = eachHourOfInterval(interval).map((date: Date): number =>
-    date.getHours()
+  const hours: number[] = Array.from(
+    { length: 24 },
+    (_, hour: number): number => hour
   )
 
   for (const date of days) {
     for (const hour of hours) {
       const hourStr = getHourString(hour)
-      const duration = getEntryDurationInHour(entry, date, hour)
+      const duration = getEntryDurationInHour(normalizedEntry, date, hour)
+      if (duration <= 0) {
+        continue
+      }
 
       populateResults({
         date,
         duration,
-        entry,
+        entry: normalizedEntry,
         key: hourStr,
         results: resultsPerHour,
         sheet
@@ -66,12 +74,15 @@ const accumulateEntryResults = (
 
     const dateKey = date.toLocaleDateString()
     const dateWeekday = weekday(date.getDay() + 1)
-    const duration = getEntryDurationInDay(entry, date)
+    const duration = getEntryDurationInDay(normalizedEntry, date)
+    if (duration <= 0) {
+      continue
+    }
 
     populateResults({
       date,
       duration,
-      entry,
+      entry: normalizedEntry,
       key: dateWeekday,
       results: resultsPerWeekday,
       sheet
@@ -80,7 +91,7 @@ const accumulateEntryResults = (
     populateResults({
       date,
       duration,
-      entry,
+      entry: normalizedEntry,
       key: dateKey,
       results: resultsPerDay,
       sheet
