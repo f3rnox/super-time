@@ -5,11 +5,11 @@ import {
   SinceOption,
   TodayOption,
   FilterOption,
-  FormatOption,
   SheetsOption,
   YesterdayOption,
   AllSheetsOption
 } from '../../options'
+import FormatOption from '../../options/format'
 
 export const CONFIG = {
   aliases: ['x'],
