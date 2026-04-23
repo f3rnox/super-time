@@ -68,4 +68,24 @@ describe('commands:now:handler', () => {
 
     expect(() => handler(getArgs())).not.toThrow()
   })
+
+  it('prints the active entry along with its notes without mutating note order', () => {
+    const entry = DB.genSheetEntry(0, 'test-entry')
+
+    entry.notes = [
+      { timestamp: new Date(2026, 3, 23, 12, 30, 0, 0), text: 'later note' },
+      { timestamp: new Date(2026, 3, 23, 12, 0, 0, 0), text: 'earlier note' }
+    ]
+
+    const originalOrder = entry.notes.map(({ text }) => text)
+    const sheet = DB.genSheet('test-sheet', [entry], entry.id)
+
+    if (db.db !== null) {
+      db.db.sheets.push(sheet)
+      db.db.activeSheetName = sheet.name
+    }
+
+    expect(() => handler(getArgs())).not.toThrow()
+    expect(entry.notes.map(({ text }) => text)).toEqual(originalOrder)
+  })
 })

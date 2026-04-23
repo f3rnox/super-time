@@ -12,6 +12,7 @@ const parseEntryFromInput = (
   return {
     id,
     tags,
+    notes: [],
     description,
     start: start ?? new Date(),
     end: end ?? null

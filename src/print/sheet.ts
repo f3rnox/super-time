@@ -1,10 +1,16 @@
+import log from '../log'
 import {
+  getJustifiedRows,
   getSheetEntryColumns,
-  printJustifiedContent,
+  printSheetEntryNotes,
   printSheetHeader
 } from '../print'
 import { type TimeSheet, type TimeSheetEntry } from '../types'
 
+/**
+ * Prints a time sheet's header followed by each of its entries with aligned
+ * columns and any notes associated with each entry rendered below it.
+ */
 const printSheet = (
   sheet: TimeSheet,
   isActive?: boolean,
@@ -27,7 +33,12 @@ const printSheet = (
     )
   )
 
-  printJustifiedContent(sheetEntryRows)
+  const justifiedRows = getJustifiedRows(sheetEntryRows)
+
+  entries.forEach((entry: TimeSheetEntry, i: number): void => {
+    log(justifiedRows[i])
+    printSheetEntryNotes(entry)
+  })
 }
 
 export default printSheet

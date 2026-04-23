@@ -40,4 +40,29 @@ describe('commands:list:handler', () => {
     expect(() => handler(getArgs())).not.toThrow()
     expect(+entry.start).toBe(initialStartDate)
   }, 10000)
+
+  it('renders entries whose notes are unsorted without mutating note order', () => {
+    if (db.db === null) {
+      throw new Error('Test DB is null')
+    }
+
+    const startDate = new Date(2026, 3, 23, 9, 0, 0, 0)
+    const endDate = new Date(2026, 3, 23, 10, 0, 0, 0)
+    const entry = DB.genSheetEntry(0, 'entry with notes', startDate, endDate)
+
+    entry.notes = [
+      { timestamp: new Date(2026, 3, 23, 9, 30, 0, 0), text: 'second note' },
+      { timestamp: new Date(2026, 3, 23, 9, 10, 0, 0), text: 'first note' },
+      { timestamp: new Date(2026, 3, 23, 9, 45, 0, 0), text: 'third note' }
+    ]
+
+    const originalOrder = entry.notes.map(({ text }) => text)
+    const sheet = DB.genSheet('main', [entry], null)
+
+    db.db.sheets = [sheet]
+    db.db.activeSheetName = sheet.name
+
+    expect(() => handler(getArgs())).not.toThrow()
+    expect(entry.notes.map(({ text }) => text)).toEqual(originalOrder)
+  }, 10000)
 })

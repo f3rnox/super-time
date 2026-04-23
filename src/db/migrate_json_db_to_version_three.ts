@@ -3,9 +3,9 @@ import _isUndefined from 'lodash/isUndefined'
 import { type JSONTimeTrackerDB } from '../types'
 
 /**
- * Creates the `tags` array on each sheet entry, which was addded in version 2.
+ * Creates the `notes` array on each sheet entry, which was added in version 3.
  */
-const migrateJSONDBToVersionTwo = (
+const migrateJSONDBToVersionThree = (
   jsonDB: JSONTimeTrackerDB
 ): JSONTimeTrackerDB => {
   const {
@@ -14,14 +14,14 @@ const migrateJSONDBToVersionTwo = (
     activeSheetName: jsonActiveSheetName
   } = jsonDB
 
-  if (jsonVersion !== 1 && !_isUndefined(jsonVersion)) {
+  if (jsonVersion !== 2 && !_isUndefined(jsonVersion)) {
     throw new Error(
-      `DB is version ${jsonVersion}, cannot migrate to version 2.`
+      `DB is version ${jsonVersion}, cannot migrate to version 3.`
     )
   }
 
   return {
-    version: 2,
+    version: 3,
     activeSheetName: jsonActiveSheetName,
     sheets: jsonSheets.map(
       ({
@@ -36,10 +36,11 @@ const migrateJSONDBToVersionTwo = (
             id: jsonId,
             start: jsonStart,
             end: jsonEnd,
-            description: jsonDescription
+            description: jsonDescription,
+            tags: jsonTags
           }) => ({
-            tags: [],
             notes: [],
+            tags: jsonTags,
             id: jsonId,
             end: jsonEnd,
             start: jsonStart,
@@ -51,5 +52,5 @@ const migrateJSONDBToVersionTwo = (
   } as JSONTimeTrackerDB
 }
 
-export default migrateJSONDBToVersionTwo
-export { migrateJSONDBToVersionTwo }
+export default migrateJSONDBToVersionThree
+export { migrateJSONDBToVersionThree }

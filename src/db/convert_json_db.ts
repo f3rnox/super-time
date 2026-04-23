@@ -21,11 +21,16 @@ const convertJSONDB = (jsonDB: JSONTimeTrackerDB): TimeTrackerDB => {
           start: jsonStart,
           end: jsonEnd,
           description: jsonDescription,
-          tags: jsonTags
+          tags: jsonTags,
+          notes: jsonNotes
         }) => ({
           id: jsonId,
           description: jsonDescription,
           tags: jsonTags,
+          notes: jsonNotes.map(({ timestamp, text }) => ({
+            text,
+            timestamp: new Date(timestamp)
+          })),
           start: new Date(jsonStart),
           end: jsonEnd === null ? null : new Date(jsonEnd)
         })

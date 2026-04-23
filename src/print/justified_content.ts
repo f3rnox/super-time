@@ -1,46 +1,20 @@
-import stripANSI from 'strip-ansi'
-
 import log from '../log'
-
-type ColumnWidths = Record<number, number>
+import getJustifiedRows from './get_justified_rows'
 
 const DEFAULT_PADDING = 1
 
+/**
+ * Logs each input row as a single string with columns right padded to the
+ * widest cell per column so that values align vertically across rows.
+ */
 const printJustifiedContent = (
   rows: string[][],
   padding: number = DEFAULT_PADDING
-) => {
-  const columnWidths: ColumnWidths = {}
+): void => {
+  const lines = getJustifiedRows(rows, padding)
 
-  rows.forEach((columns: string[]) => {
-    columns.forEach((value: string, i: number) => {
-      const currentWidth = columnWidths[i] ?? padding
-
-      columnWidths[i] = Math.max(
-        currentWidth,
-        stripANSI(value).length + padding
-      )
-    })
-  })
-
-  rows.forEach((columns: string[]) => {
-    const resultString = columns
-      .map((value: string, i: number) => {
-        const width = columnWidths[i]
-        const valueWidth = stripANSI(value).length
-        const charsToPad = Math.max(0, width - valueWidth)
-
-        let result = value
-
-        for (let j = 0; j < charsToPad; j += 1) {
-          result += ' '
-        }
-
-        return result
-      })
-      .join(' ')
-
-    log(resultString)
+  lines.forEach((line: string): void => {
+    log(line)
   })
 }
 

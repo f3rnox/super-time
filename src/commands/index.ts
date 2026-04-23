@@ -3,6 +3,7 @@ import nowCommand from './now'
 import outCommand from './out'
 import editCommand from './edit'
 import listCommand from './list'
+import noteCommand from './note'
 import weekCommand from './week'
 import sheetCommand from './sheet'
 import todayCommand from './today'
@@ -18,6 +19,7 @@ export default [
   weekCommand,
   listCommand,
   editCommand,
+  noteCommand,
   todayCommand,
   sheetCommand,
   sheetsCommand,

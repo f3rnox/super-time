@@ -12,11 +12,13 @@ import * as U from '../utils'
 import * as CONFIG from '../config'
 import convertJSONDB from './convert_json_db'
 import migrateJSONDBToVersionTwo from './migrate_json_db_to_version_two'
+import migrateJSONDBToVersionThree from './migrate_json_db_to_version_three'
 import { TEST_DB_PATH, DB_PATH, DEFAULT_SHEET_NAME } from '../config'
 import {
   type TimeSheet,
   type TimeTrackerDB,
   type TimeSheetEntry,
+  type TimeSheetEntryNote,
   type JSONTimeTrackerDB
 } from '../types'
 import { type AddActiveSheetEntryArgs } from './types'
@@ -28,7 +30,8 @@ const MIGRATIONS_BY_TARGET_VERSION: Record<
   number,
   (jsonDB: JSONTimeTrackerDB) => JSONTimeTrackerDB
 > = {
-  2: migrateJSONDBToVersionTwo
+  2: migrateJSONDBToVersionTwo,
+  3: migrateJSONDBToVersionThree
 }
 
 interface MigrateJSONDBResult {
@@ -107,14 +110,16 @@ class DB {
     description: string,
     start?: Date,
     end?: Date | null,
-    tags?: string[]
+    tags?: string[],
+    notes?: TimeSheetEntryNote[]
   ): TimeSheetEntry {
     return {
       id,
       description,
       end: end ?? null,
       start: start ?? new Date(),
-      tags: tags ?? []
+      tags: tags ?? [],
+      notes: notes ?? []
     }
   }
 
