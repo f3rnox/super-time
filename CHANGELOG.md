@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.51.0](https://github.com/f3rnox/super-time/compare/v1.50.0...v1.51.0) (2026-04-23)
+
+
+### Features
+
+* add missing command handler tests ([4b33467](https://github.com/f3rnox/super-time/commit/4b33467a0c14a893f506fc79b1f5374616b11ac7))
+* add note command and rendering of notes ([ac62f6e](https://github.com/f3rnox/super-time/commit/ac62f6e6b6f88132846a111de98ac83c9a22edf6))
+
+
+### Bug Fixes
+
+* list date mutation when deriving start-of-day ([3c2e7cf](https://github.com/f3rnox/super-time/commit/3c2e7cf64099efe00d69a9fa2bd2eab1da652941))
+
 ## [1.50.0](https://github.com/f3rnox/super-time/compare/v1.49.4...v1.50.0) (2026-04-23)
 
 
