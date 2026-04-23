@@ -37,6 +37,7 @@
   },
   "scripts": {
     "build": "NODE_PATH=./src tsc -p tsconfig.json",
+    "dev": "NODE_ENV=development NODE_PATH=./src ts-node src/cli.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "pnpm lint:markdownlint && pnpm lint:eslint && pnpm lint:tsc",
@@ -50,6 +51,7 @@
     "prepare-release": "pnpm format:check && pnpm lint && pnpm test && pnpm build",
     "prepublish": "pnpm build",
     "release": "pnpm prepare-release && pnpm update-version && git push --follow-tags origin",
+    "start": "node dist/cli.js",
     "test": "NODE_PATH=./src NODE_ENV=test FORCE_COLOR=1 vitest run",
     "test:coverage": "NODE_PATH=./src NODE_ENV=test FORCE_COLOR=1 vitest run --coverage",
     "test:watch": "NODE_PATH=./src NODE_ENV=test FORCE_COLOR=1 vitest",
