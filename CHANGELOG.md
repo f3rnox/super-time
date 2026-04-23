@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.53.2](https://github.com/f3rnox/super-time/compare/v1.53.1...v1.53.2) (2026-04-23)
+
 ### [1.53.1](https://github.com/f3rnox/super-time/compare/v1.53.0...v1.53.1) (2026-04-23)
 
 
