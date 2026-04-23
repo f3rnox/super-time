@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 import { type Argv } from 'yargs'
 import chai, { expect } from 'chai'
 import chaiAsPromised from 'chai-as-promised'

@@ -9,12 +9,11 @@ import {
 } from '../types'
 
 const setupOptions = async (
-  options: Array<YArgsDynamicOptionDefinition | YArgsOptionDefinition>,
+  options: (YArgsDynamicOptionDefinition | YArgsOptionDefinition)[],
   yargs: Argv
 ): Promise<void> => {
   await PI.forEach(
     options,
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     async (option: YArgsDynamicOptionDefinition | YArgsOptionDefinition) => {
       if (_isFunction(option)) {
         const db = new DB()

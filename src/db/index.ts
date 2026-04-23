@@ -105,7 +105,7 @@ class DB {
     try {
       await fs.access(this.dbPath)
       return true
-    } catch (err: unknown) {
+    } catch {
       return false
     }
   }
@@ -113,9 +113,9 @@ class DB {
   async delete(): Promise<void> {
     try {
       await fs.unlink(this.dbPath)
-    } catch (err: any) {
+    } catch (err: unknown) {
       if (NODE_ENV !== 'test') {
-        throw new Error(`Failed to delete DB: ${err}`)
+        throw new Error(`Failed to delete DB: ${String(err)}`, { cause: err })
       }
     }
   }
@@ -130,12 +130,15 @@ class DB {
       await this.save()
     } else {
       const dbJSON = await fs.readFile(this.dbPath, 'utf-8')
-      let jsonDB: JSONTimeTrackerDB = {} as JSONTimeTrackerDB
+      let jsonDB: JSONTimeTrackerDB
 
       try {
-        jsonDB = JSON.parse(dbJSON)
-      } catch (err: any) {
-        throw new Error(`DB at ${this.dbPath} is invalid JSON: ${err}`)
+        jsonDB = JSON.parse(dbJSON) as JSONTimeTrackerDB
+      } catch (parseErr: unknown) {
+        throw new Error(
+          `DB at ${this.dbPath} is invalid JSON: ${String(parseErr)}`,
+          { cause: parseErr }
+        )
       }
 
       let didMigrate = false
@@ -168,8 +171,8 @@ class DB {
 
     try {
       await fs.writeFile(this.dbPath, dbJSON)
-    } catch (err: any) {
-      throw new Error(`Failed to save DB: ${err}`)
+    } catch (err: unknown) {
+      throw new Error(`Failed to save DB: ${String(err)}`, { cause: err })
     }
   }
 

@@ -28,7 +28,6 @@ import {
   getSheetsWithEntriesSinceDate
 } from '../../utils'
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 const handler = (args: BreakdownCommandArgs): void => {
   const {
     db,

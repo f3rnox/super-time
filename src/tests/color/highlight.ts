@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 import isAnsi from 'is-ansi'
 import { expect } from 'chai'
 

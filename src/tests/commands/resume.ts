@@ -1,5 +1,3 @@
-/* eslint-env mocha */
-
 import _last from 'lodash/last'
 import { type Argv } from 'yargs'
 import chai, { expect } from 'chai'

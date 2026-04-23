@@ -9,7 +9,6 @@ import { parseVariadicArg } from '../../utils'
 import { type EditCommandArgs } from './types'
 import { clDate, clHighlight, clSheet, clText } from '../../color'
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 const handler = async (args: EditCommandArgs): Promise<void> => {
   const {
     db,

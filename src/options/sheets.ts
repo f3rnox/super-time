@@ -7,7 +7,6 @@ interface SheetsOptionArgs {
 
 const SHEETS_OPTION: YArgsDynamicOptionDefinition = async (
   args: SheetsOptionArgs
-  // eslint-disable-next-line @typescript-eslint/require-await
 ): Promise<[string, Record<string, string | string[]>]> => {
   const { db } = args
   const sheets = db.getAllSheets()

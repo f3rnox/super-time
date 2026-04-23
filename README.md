@@ -1,17 +1,17 @@
-# track-time-cli -- A CLI Time Tracker
+# super-time -- A CLI Time Tracker
 
 [![NPM Version][npm-image]][npm-url]
 [![Downloads Stats][npm-downloads]][npm-url]
-![CI GitHub Workflow Status](https://github.com/f3rno64/track-time-cli/actions/workflows/ci.yml/badge.svg)
+![CI GitHub Workflow Status](https://github.com/f3rnox/super-time/actions/workflows/ci.yml/badge.svg)
 
-[**track-time-cli**](https://npmjs.com/package/track-time-cli) is a Node.JS CLI
+[**super-time**](https://npmjs.com/package/super-time) is a Node.JS CLI
 utility for tracking tasks in time sheets, inspired by ruby's
 [**timetrap**](https://github.com/samg/timetrap) (sadly not maintained).
 
 It supports natural language specification of entry start and end times,
 allowing you to check out of entries retroactively, or check in after already
 starting a task without leaving any time untracked. The database is a JSON file
-stored in your home folder, at `~/.track-time-cli/db.json`.
+stored in your home folder, at `~/.super-time/db.json`.
 
 ## Example Usage
 
@@ -29,15 +29,15 @@ tt week
 
 ## Installation
 
-**track-time-cli** is available as an [**NPM**](https://npmjs.com/package/track-time-cli)
+**super-time** is available as an [**NPM**](https://npmjs.com/package/super-time)
 package; install it with your package manager of choice. For example, if you
-use npm, run `npm i -g track-time-cli`.
+use npm, run `npm i -g super-time`.
 
 Once installed, it will be available as the **tt** command.
 
 ## Commands
 
-**track-time-cli** provides commands for both managing time sheet entries, and
+**super-time** provides commands for both managing time sheet entries, and
 viewing historical activity in a variety of ways. To see a full list, run
 **`tt --help`**.
 
@@ -96,32 +96,32 @@ current time with the **`-r`** flag (converting *2/5/2024, 5:49:44 PM* to
 For reference, the full output of **`tt --help`** is reproduced below:
 
 ```text
-track-time-cli now
+super-time now
 
 Display all active time sheet entries
 
 Commands:
-  track-time-cli in <description..>    Check in to a time sheet     [aliases: i]
-  track-time-cli now                   Display all active time sheet entries
+  super-time in <description..>    Check in to a time sheet     [aliases: i]
+  super-time now                   Display all active time sheet entries
                                                                        [default]
-  track-time-cli out                   Check out of the active time sheet entry
+  super-time out                   Check out of the active time sheet entry
                                                                     [aliases: o]
-  track-time-cli week [sheets..]       Display a summary of activity for the
+  super-time week [sheets..]       Display a summary of activity for the
                                        past week                    [aliases: w]
-  track-time-cli list [sheets..]       List all time sheet entries  [aliases: l]
-  track-time-cli edit [description..]  View, edit, or delete a time sheet entry
+  super-time list [sheets..]       List all time sheet entries  [aliases: l]
+  super-time edit [description..]  View, edit, or delete a time sheet entry
                                                                     [aliases: e]
-  track-time-cli today [sheets..]      Display a summary of activity for today
+  super-time today [sheets..]      Display a summary of activity for today
                                                                     [aliases: t]
-  track-time-cli sheet [name]          Switch to or delete a sheet by name
+  super-time sheet [name]          Switch to or delete a sheet by name
                                                                     [aliases: s]
-  track-time-cli sheets                List all sheets             [aliases: ss]
-  track-time-cli resume                Start a new entry with the same
+  super-time sheets                List all sheets             [aliases: ss]
+  super-time resume                Start a new entry with the same
                                        description as the previous one
                                                                     [aliases: r]
-  track-time-cli yesterday [sheets..]  Display a summary of activity for
+  super-time yesterday [sheets..]  Display a summary of activity for
                                        yesterday                    [aliases: y]
-  track-time-cli breakdown [sheets..]  Display total durations per day for one
+  super-time breakdown [sheets..]  Display total durations per day for one
                                        or more sheets               [aliases: b]
 
 Options:
@@ -143,7 +143,8 @@ See [*CHANGELOG.md*](/CHANGELOG.md) for more information.
 
 ## License
 
-Distributed under the **MIT** license. See [*LICENSE.md*](/LICENSE.md) for more information.
+Distributed under the **MIT** license. See [*LICENSE.md*](/LICENSE.md)
+for more information.
 
 ## Contributing
 
@@ -153,6 +154,6 @@ Distributed under the **MIT** license. See [*LICENSE.md*](/LICENSE.md) for more 
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-[npm-image]: https://img.shields.io/npm/v/track-time-cli.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/track-time-cli
-[npm-downloads]: https://img.shields.io/npm/dm/track-time-cli.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/super-time.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/super-time
+[npm-downloads]: https://img.shields.io/npm/dm/super-time.svg?style=flat-square

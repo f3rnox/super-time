@@ -3,10 +3,7 @@ import { isConsonant } from 'consonant'
 
 import isPlural from './is_plural'
 
-const getPluralizedArrayLength = (
-  value: Array<unknown>,
-  input: string
-): string => {
+const getPluralizedArrayLength = (value: unknown[], input: string): string => {
   if (input.length < 2) {
     throw new Error('Label must be at least 2 characters long')
   }

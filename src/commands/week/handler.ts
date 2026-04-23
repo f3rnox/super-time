@@ -29,7 +29,6 @@ import {
   type WeekCommandArgs
 } from './types'
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 const handler = (args: WeekCommandArgs): void => {
   const { ago, db, help, humanize, sheets: inputSheets, total, yargs } = args
 

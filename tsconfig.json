@@ -1,24 +1,25 @@
 {
+  "include": ["src/**/*"],
   "ts-node": {
     "files": true
   },
-
   "compilerOptions": {
     "target": "esnext",
     "esModuleInterop": true,
-    "resolveJsonModule": true,
     "incremental": true,
     "declaration": true,
     "module": "commonjs",
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "moduleResolution": "node",
     "rootDir": "./src",
     "outDir": "./dist",
     "baseUrl": "./src",
+    "ignoreDeprecations": "6.0",
+    "types": ["node"],
     "allowSyntheticDefaultImports": true,
     "importHelpers": true,
     "alwaysStrict": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -32,5 +33,13 @@
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true
   },
-  "include": ["src/**/*"]
+  "typedocOptions": {
+    "githubPages": true,
+    "cacheBust": true,
+    "hideGenerator": true,
+    "searchInComments": true,
+    "cleanOutputDir": true,
+    "entryPoints": ["src/index.ts"],
+    "out": "docs"
+  }
 }

@@ -7,7 +7,7 @@ type ColumnWidths = Record<number, number>
 const DEFAULT_PADDING = 1
 
 const printJustifiedContent = (
-  rows: Array<string[]>,
+  rows: string[][],
   padding: number = DEFAULT_PADDING
 ) => {
   const columnWidths: ColumnWidths = {}
