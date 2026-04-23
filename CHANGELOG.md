@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.50.0](https://github.com/f3rnox/super-time/compare/v1.49.4...v1.50.0) (2026-04-23)
+
+
+### Features
+
+* add dev and start scripts to manifest ([a5de053](https://github.com/f3rnox/super-time/commit/a5de0536b7226f5fd694aaa6ab44233e54342806))
+
+
+### Bug Fixes
+
+* add missed types.ts to git ([902332e](https://github.com/f3rnox/super-time/commit/902332ed78e40f9f796a2e9fcb095a21906e4dab))
+* week handler ([4b50f78](https://github.com/f3rnox/super-time/commit/4b50f787718e94d0ed1adf2a847d9c313091bba8))
+
 ### [1.49.4](https://github.com/f3rnox/super-time/compare/v1.49.3...v1.49.4) (2026-04-23)
 
 

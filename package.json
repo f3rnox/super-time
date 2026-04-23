@@ -1,7 +1,7 @@
 {
   "name": "super-time-tracker",
   "type": "commonjs",
-  "version": "1.49.4",
+  "version": "1.50.0",
   "description": "A CLI utility for tracking tasks in time sheets, inspired by timetrap.",
   "keywords": [
     "time",
