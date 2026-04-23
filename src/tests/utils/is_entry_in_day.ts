@@ -11,4 +11,12 @@ describe('utils:is_entry_in_day', () => {
 
     expect(isEntryInDay(date, entry)).toBe(true)
   })
+
+  it('returns false for active entries that start after the day', () => {
+    const date = getPastDay(1)
+    const todayStart = new Date()
+    const entry = DB.genSheetEntry(0, 'today-active-entry', todayStart, null)
+
+    expect(isEntryInDay(date, entry)).toBe(false)
+  })
 })

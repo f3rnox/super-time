@@ -3,7 +3,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import DB from '../../db'
 import getTestDB from '../get_test_db'
-import { getYesterday } from '../../dates'
+import { getPastDay, getYesterday } from '../../dates'
 import { type YesterdayCommandArgs, handler } from '../../commands/yesterday'
 
 const db = getTestDB()
@@ -12,7 +12,7 @@ const getArgs = (
   overrides?: Record<string, unknown>
 ): YesterdayCommandArgs => ({
   db,
-  yargs: {} as Argv,
+  yargs: Object.create(null) as Argv,
   ...(overrides ?? {})
 })
 
@@ -53,5 +53,28 @@ describe('commands:yesterday:handler', () => {
     }
 
     expect(() => handler(getArgs())).not.toThrow()
+  })
+
+  it('throws when only today active entries exist', () => {
+    const todayStart = new Date()
+    const todayEntry = DB.genSheetEntry(0, 'today-entry', todayStart, null)
+    const oldEntry = DB.genSheetEntry(
+      1,
+      'old-entry',
+      getPastDay(5),
+      getPastDay(4)
+    )
+    const sheet = DB.genSheet(
+      'test-sheet',
+      [oldEntry, todayEntry],
+      todayEntry.id
+    )
+
+    if (db.db !== null) {
+      db.db.sheets.push(sheet)
+      db.db.activeSheetName = sheet.name
+    }
+
+    expect(() => handler(getArgs())).toThrow('No entries for yesterday')
   })
 })
