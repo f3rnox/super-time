@@ -1,5 +1,6 @@
 import _last from 'lodash/last'
 import { type Argv } from 'yargs'
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import DB from '../../db'
 import getTestDB from '../get_test_db'

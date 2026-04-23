@@ -1,4 +1,5 @@
 import { type Argv } from 'yargs'
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 
 import getTestDB from '../get_test_db'
 import { type SheetsCommandArgs, handler } from '../../commands/sheets'
