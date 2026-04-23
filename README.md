@@ -2,9 +2,9 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Downloads Stats][npm-downloads]][npm-url]
-![CI GitHub Workflow Status](https://github.com/f3rnox/super-time/actions/workflows/ci.yml/badge.svg)
+![CI GitHub Workflow Status](https://github.com/f3rnox/super-time-tracker/actions/workflows/ci.yml/badge.svg)
 
-[**super-time**](https://npmjs.com/package/super-time) is a Node.JS CLI
+[**super-time**](https://npmjs.com/package/super-time-tracker) is a Node.JS CLI
 utility for tracking tasks in time sheets, inspired by ruby's
 [**timetrap**](https://github.com/samg/timetrap) (sadly not maintained).
 
@@ -194,6 +194,6 @@ for more information.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-[npm-image]: https://img.shields.io/npm/v/super-time.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/super-time
-[npm-downloads]: https://img.shields.io/npm/dm/super-time.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/super-time-tracker.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/super-time-tracker
+[npm-downloads]: https://img.shields.io/npm/dm/super-time-tracker.svg?style=flat-square
