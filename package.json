@@ -1,5 +1,5 @@
 {
-  "name": "s-time",
+  "name": "super-time-tracker",
   "type": "commonjs",
   "version": "1.49.1",
   "description": "A CLI utility for tracking tasks in time sheets, inspired by timetrap.",
@@ -33,7 +33,7 @@
   ],
   "sideEffects": false,
   "bin": {
-    "st": "./dist/cli.js"
+    "stt": "./dist/cli.js"
   },
   "scripts": {
     "build": "NODE_PATH=./src tsc -p tsconfig.json",
