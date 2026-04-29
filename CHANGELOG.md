@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.54.1](https://github.com/f3rnox/super-time/compare/v1.54.0...v1.54.1) (2026-04-29)
+
+
+### Bug Fixes
+
+* github publish workflow ([a3de7a6](https://github.com/f3rnox/super-time/commit/a3de7a6840cd1b4f08c004f644ec3e62dc8944bf))
+
 ## [1.54.0](https://github.com/f3rnox/super-time/compare/v1.53.4...v1.54.0) (2026-04-29)
 
 
