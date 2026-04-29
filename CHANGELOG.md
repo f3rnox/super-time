@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.54.0](https://github.com/f3rnox/super-time/compare/v1.53.4...v1.54.0) (2026-04-29)
+
+
+### Features
+
+* alter publish gh workflow to use setup-nodev4 ([5c080de](https://github.com/f3rnox/super-time/commit/5c080de54ade9a2d33e421558ef37e108406cc32))
+
 ### [1.53.4](https://github.com/f3rnox/super-time/compare/v1.53.3...v1.53.4) (2026-04-29)
 
 
