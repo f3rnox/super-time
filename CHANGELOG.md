@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.54.2](https://github.com/f3rnox/super-time/compare/v1.54.1...v1.54.2) (2026-04-29)
+
+
+### Bug Fixes
+
+* add NODE_AUTH_TOKEN to gh publish workflow ([b8bfaa1](https://github.com/f3rnox/super-time/commit/b8bfaa10409ad022b533d18f94dd04ae72d76bf9))
+
 ### [1.54.1](https://github.com/f3rnox/super-time/compare/v1.54.0...v1.54.1) (2026-04-29)
 
 
